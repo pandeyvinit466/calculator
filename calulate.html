@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        body{
+            height:100vh;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap:50px;
+        }
+        section{
+            width: 320px;
+            min-height:200px;
+            background-color: black;
+            color:wheat;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding:20px;
+            gap:10px;
+        }
+        button{
+            padding:6px;
+            font-weight:bold;
+            color:red;
+        }
+        div button{
+            width:30px;
+            height:30px;
+            border-radius:50%;
+            /* border:none; */
+            outline:none;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <section>
+          <label>Enter the 1st value</label>
+          <input type="text" id="input1">
+          <label>Enter the 2nd value</label>
+          <input type="text" id="input2">
+
+          <div>
+              <button type="button">+</button>
+              <button type="button">-</button>
+              <button type="button">*</button>
+              <button type="button">/</button>
+              <button type="button">%</button>
+          </div>
+
+          <button type="button" id="calculate">calculate</button>
+
+          <h1 id="result">Answer</h1>
+    </section>
+    <script>
+
+      let cal = document.getElementById("calculate");
+      
+    //   console.log(cal)
+
+    let c = document.querySelectorAll("div button");
+    let dis ;
+ //    console.log(c);
+    for(let val of c){
+     // console.log(val);
+
+     val.addEventListener("click",()=>{
+        dis = val.innerText;
+     })
+    }
+
+    cal.addEventListener("click",()=>{
+       let a = Number(document.getElementById("input1").value);
+       let b = Number(document.getElementById("input2").value);
+       let h = document.getElementById("result");
+
+       console.log(dis);
+
+       let operations = dis;
+       switch(operations){
+            case '+':
+                h.innerText = a + b;
+                dis = ""
+                // console.log(a, typeof a, b, typeof b);
+
+                break;
+            case '-':
+                h.innerText = a - b;
+                dis = ""
+                break;
+            case '*':
+                h.innerText = a * b;
+                dis = ""
+                break;
+            case '/':
+                h.innerText = a / b;
+                dis = ""
+                break;
+            case '%':
+                h.innerText = a % b;
+                dis = ""
+                break;
+            default:
+                h.innerText = `Please Select valid Operations first`; 
+                
+            }
+
+            document.getElementById("input1").value="";
+            document.getElementById("input2").value="";
+
+
+
+    })
+
+    </script>
+</body>
+</html>
